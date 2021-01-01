@@ -1,0 +1,8 @@
+<div class="templatemo_content_left_section">
+    <h1>Categories</h1>
+    <ul>
+        <li *ngFor="let temp of genres">
+            <a routerLink="/books/{{ temp.id }}" routerLinkActive="active-link">{{temp.name}}</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,15 @@
+<div *ngFor="let temp of books">
+    <div class="templatemo_product_box">
+        <h1>{{temp.name}}</h1>
+        <img src="{{temp.imageUrl}}" alt="image" />
+        <div class="product_info">
+            <p>{{temp.description}}</p>
+            <h3>{{ temp.price | currency:'INR' }}</h3>
+            <div class="buy_now_button"><a href="#">Buy Now</a></div>
+            <div class="detail_button"><a href="#">Detail</a></div>
+        </div>
+        <div class="cleaner">&nbsp;</div>
+    </div>
+    <div *ngIf="temp.id % 2 == 1" class="cleaner_with_width">&nbsp;</div>
+    <div *ngIf="temp.id % 2 == 0" class="cleaner_with_height">&nbsp;</div>
+</div>
