@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   constructor(public oktaAuth: OktaAuthService) { }
 
   ngOnInit(): void {
-    console.log("hello");
     this.signIn = new OktaSignIn({
       baseUrl: oktaConfig.oidc.issuer.split('/oauth2')[0],
       clientId: oktaConfig.oidc.clientId,
@@ -25,7 +24,7 @@ export class LoginComponent implements OnInit {
       logo: '/assets/logo.png',
       i18n: {
         en: {
-          'primaryauth.title': 'Sign in to biggest online store',
+          'primaryauth.title': 'Sign in to biggest online book store',
         },
       },
       authParams: {

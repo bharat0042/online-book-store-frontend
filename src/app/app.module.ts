@@ -8,13 +8,24 @@ import { HeaderComponent } from './components/header/header.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { BestSellerComponent } from './components/best-seller/best-seller.component';
 import { BooksComponent } from './components/books/books.component';
-import { RouterModule, Routes } from '@angular/router';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
-import { OktaAuthService } from '@okta/okta-angular';
+import oktaConfig from '../app/common/oktaConfig';
+import { OKTA_CONFIG,
+         OktaAuthModule,
+         OktaCallbackComponent
+      } from '@okta/okta-angular';
+
+const oktaCfg = Object.assign({
+  onAuthRequired : (injector) => {
+    const router = injector.get(Router);
+    router.navigate(['/login'])
+  }
+}, oktaConfig.oidc)
 
 const routes: Routes = [
+  { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'login/callback', component: LoginComponent },
   { path: 'books/:id', component: BooksComponent },
   { path: 'books', component: BooksComponent },
   { path: '', redirectTo: '/books', pathMatch: 'full' }
@@ -34,9 +45,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    OktaAuthService
+    OktaAuthModule
   ],
-  providers: [],
+  providers: [{provide : OKTA_CONFIG, useValue : oktaCfg}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
