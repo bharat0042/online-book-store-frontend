@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OktaAuthService } from '@okta/okta-angular';
+
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  public isAuthenticated : boolean = false;
+  public user : string;
 
-  ngOnInit(): void {
+  constructor(private oktaAuth : OktaAuthService) {
   }
 
+  async ngOnInit() {
+    this.oktaAuth.$authenticationState.subscribe(
+      async data => {
+        this.isAuthenticated = data;
+        if(data) {
+          const userClaim = await this.oktaAuth.getUser();
+          this.user = userClaim.name;
+        }
+      }
+    );
+  }
+
+  userLogout() {
+    this.oktaAuth.signOut();
+  }
 }

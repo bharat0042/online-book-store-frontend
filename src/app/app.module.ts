@@ -15,6 +15,7 @@ import { OKTA_CONFIG,
          OktaAuthModule,
          OktaCallbackComponent
       } from '@okta/okta-angular';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 const oktaCfg = Object.assign({
   onAuthRequired : (injector) => {
@@ -45,7 +46,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     HttpClientModule,
-    OktaAuthModule
+    OktaAuthModule,
+    NoopAnimationsModule,
   ],
   providers: [{provide : OKTA_CONFIG, useValue : oktaCfg}],
   bootstrap: [AppComponent]

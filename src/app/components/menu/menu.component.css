@@ -1,0 +1,20 @@
+.theLogin {
+    border: 1px solid rgb(2, 255, 255);
+    padding: 10px 10px;
+}
+
+.welcome {
+    border: 1px solid wood;
+    padding: 10px 5px;
+    text-align: left;
+    color: yellow;
+}
+
+button {
+    align-items: right;
+    color: white;
+    background-color: gray;
+    padding: 0px 10px;
+    margin: auto;
+    font-size: 12px;
+}

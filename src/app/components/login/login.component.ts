@@ -32,9 +32,15 @@ export class LoginComponent implements OnInit {
       }
     });
 
-    this.signIn.showSignInToGetTokens({
+    this.signIn.renderEl({
       el: '#sign-in-widget',
+      pkce : true,
       scopes: oktaConfig.oidc.scopes
+    },
+    (result) => {
+      if(result.status == "SUCCESS") {
+        this.oktaAuth.signInWithRedirect();
+      }
     });
   }
 
