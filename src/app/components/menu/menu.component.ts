@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OktaAuthService } from '@okta/okta-angular';
 
 
@@ -12,7 +13,7 @@ export class MenuComponent implements OnInit {
   public isAuthenticated : boolean = false;
   public user : string;
 
-  constructor(private oktaAuth : OktaAuthService) {
+  constructor(private oktaAuth : OktaAuthService, private router : Router) {
   }
 
   async ngOnInit() {
@@ -25,6 +26,10 @@ export class MenuComponent implements OnInit {
         }
       }
     );
+  }
+
+  userLogin() {
+    this.router.navigateByUrl("/login");
   }
 
   userLogout() {

@@ -4,7 +4,9 @@
         <li><a routerLink="" routerLinkActive="active-link">Search</a></li>
         <li><a href="#">New Releases</a></li>
     </ul>
-    <a *ngIf="!isAuthenticated" class="theLogin" routerLink="/login" routerLinkActive="active-link">Login</a>
+    <div *ngIf="!isAuthenticated">
+        <button (click)="userLogin()">Login</button>
+    </div>
     <div *ngIf="isAuthenticated">
         <button (click)="userLogout()">Logout</button>
     </div>
