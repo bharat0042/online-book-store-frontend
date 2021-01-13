@@ -27,6 +27,13 @@ export class BooksService {
       map(response => response._embedded.books)
     );
   }
+
+  getBooksListById(bookId : number) : Observable<Book> {
+
+    const bookUrl = `${this.baseUrl}/${bookId}`;
+
+    return this.httpClient.get<Book>(bookUrl);
+  }
 }
 
 interface GetBookResponse {
