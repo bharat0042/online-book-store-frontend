@@ -16,6 +16,7 @@
 }
 
 .buy_now_button a{
+	border : 0px;
 	clear: both;
 	text-align: center;
 	display: block;
@@ -26,6 +27,25 @@
 	color: #FFFFFF;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+.buy_now_button button{
+	border : 0px;
+	clear: both;
+	text-align: center;
+	display: block;
+	width: 100px;
+	padding: 4px 0 5px 0;
+	margin-bottom: 10px; 
+	background: url(../../../assets/images/templatemo_btn_02.jpg) no-repeat;
+	color: #351730;
+	font-weight: bold;
+	font-size: 14px;	
+	text-decoration: none;
+}
+
+.buy_now_button button:active {
+	transform: translateY(2px);
 }
 
 .detail_button a{

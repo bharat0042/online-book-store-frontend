@@ -5,8 +5,8 @@
         <div class="product_info">
             <p>{{temp.description}}</p>
             <h3>{{ temp.price | currency:'INR' }}</h3>
-            <div class="buy_now_button"><a href="#">Buy Now</a></div>
             <div class="detail_button"><a routerLink="/book-details/{{ temp.id }}" routerLinkActive="active-link">Details</a></div>
+            <div class="buy_now_button"><button (click)="addToCart(temp)">Buy Now</button></div>
         </div>
         <div class="cleaner">&nbsp;</div>
     </div>

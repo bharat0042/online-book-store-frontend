@@ -16,6 +16,7 @@ import { OKTA_CONFIG,
          OktaCallbackComponent
       } from '@okta/okta-angular';
 import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { CartListComponent } from './components/cart-list/cart-list.component';
 
 const oktaCfg = Object.assign({
   onAuthRequired : (injector) => {
@@ -27,6 +28,7 @@ const oktaCfg = Object.assign({
 const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'cart-list', component: CartListComponent },
   { path: 'book-details/:book-id', component: BookDetailsComponent },
   { path: 'books/:id', component: BooksComponent },
   { path: 'books', component: BooksComponent },
@@ -42,7 +44,8 @@ const routes: Routes = [
     BestSellerComponent,
     BooksComponent,
     LoginComponent,
-    BookDetailsComponent
+    BookDetailsComponent,
+    CartListComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

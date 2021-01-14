@@ -3,6 +3,7 @@
         <li><a href="#" class="current">Home</a></li>
         <li><a routerLink="" routerLinkActive="active-link">Search</a></li>
         <li><a href="#">New Releases</a></li>
+        <li><a routerLink="/cart-list" routerLinkActive="active-link">Goto Cart</a></li>
     </ul>
     <div *ngIf="!isAuthenticated">
         <button (click)="userLogin()">Login</button>
