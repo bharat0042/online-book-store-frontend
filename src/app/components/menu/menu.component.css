@@ -18,3 +18,11 @@ button {
     margin: auto;
     font-size: 12px;
 }
+
+.alert {
+	color: rgb(204, 0, 255);
+	border: 1px solid wood;
+    padding: 10px 5px;
+    text-align: left;
+    font-size: medium;
+}

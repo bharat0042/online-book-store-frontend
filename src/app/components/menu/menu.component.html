@@ -3,7 +3,7 @@
         <li><a href="#" class="current">Home</a></li>
         <li><a routerLink="" routerLinkActive="active-link">Search</a></li>
         <li><a href="#">New Releases</a></li>
-        <li><a routerLink="/cart-list" routerLinkActive="active-link">Goto Cart</a></li>
+        <li *ngIf="isAuthenticated"><a routerLink="/cart-list" routerLinkActive="active-link">Goto Cart</a></li>
     </ul>
     <div *ngIf="!isAuthenticated">
         <button (click)="userLogin()">Login</button>
@@ -12,4 +12,5 @@
         <button (click)="userLogout()">Logout</button>
     </div>
 </div>
+<h3 *ngIf="!isAuthenticated" class="alert">Please sign in to view cart and checkout</h3>
 <h3 *ngIf="isAuthenticated" class="welcome">Welcome back , {{user}}</h3>

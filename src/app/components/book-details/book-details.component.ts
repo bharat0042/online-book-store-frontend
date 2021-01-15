@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/app/common/book';
+import { CartItem } from 'src/app/common/cart-item';
 import { BooksService } from 'src/app/services/books.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-book-details',
@@ -12,11 +14,12 @@ export class BookDetailsComponent implements OnInit {
 
   newBook : Book;
   //bookAdditionalData : AddOnBook; --> for description and author, will add later
+  public user : string;
 
   constructor(private activatedRoute : ActivatedRoute, private booksService : BooksService,
-             private router : Router) { }
+             private router : Router,  private cartService : CartService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.activatedRoute.paramMap.subscribe(() => {
       this.getBookData();
     })
@@ -31,6 +34,11 @@ export class BookDetailsComponent implements OnInit {
 
   gotoHomepage() {
     this.router.navigateByUrl("/");
+  }
+
+  addToCart(temp : Book) {
+    let cartItem = new CartItem(temp);
+    this.cartService.addItemToCart(cartItem);
   }
 
 }

@@ -3,6 +3,7 @@
         <tr>
             <th>Image</th>
             <th>Name</th>
+            <th>Unit Price</th>
             <th>Quantity</th>
         </tr>
     </thead>
@@ -11,6 +12,8 @@
             <td><img src="{{temp.imageUrl}}" class="img-responsive" width="75px"></td>
             <td>
                 <p>{{temp.name}}</p>
+            </td>
+            <td>
                 <p>{{temp.unitPrice | currency :'INR'}}</p>
             </td>
             <td>
@@ -20,6 +23,7 @@
             </td>
         </tr>
         <tr class="active-row">
+            <td></td>
             <td></td>
             <td>Totals</td>
             <td>
