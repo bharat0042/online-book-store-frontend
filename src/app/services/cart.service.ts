@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CartItem } from '../common/cart-item';
+import { Purchase } from '../common/purchase';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class CartService {
   totalPrice: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   totalQuantity: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  constructor() { }
+  constructor(private httpClient : HttpClient) { }
   
   addItemToCart(cartItem: CartItem) {
     let itemExistInCart: boolean = false;
@@ -65,7 +67,11 @@ export class CartService {
   }
 
   getCartItemList() {
-    console.log(this.cartItemList);
     return this.cartItemList;
+  }
+
+  saveOrder(purchase : Purchase) : Observable<any> {
+    const purchaseUrl = 'http://localhost:8080/v1/checkout/purchase';
+    return this.httpClient.post<Purchase>(purchaseUrl, purchase);  
   }
 }

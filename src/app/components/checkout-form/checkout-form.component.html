@@ -1,0 +1,37 @@
+<div>
+
+    <p>PLease fill the form below to proceed with checkout</p>
+
+    <div><input #name type="text" 
+           placeholder="Enter your full name"
+           /></div>
+
+    <div><input #phone type="text" 
+           placeholder="Phone Number"
+           /></div>
+
+    <div><input #email type="text" 
+           placeholder="Email"
+           /></div>
+
+    <div><input #street type="text" 
+           placeholder="Street"
+           /></div>
+
+    <div><input #city type="text" 
+           placeholder="City"
+           /></div>
+
+    <div><input #state type="text" 
+           placeholder="State"
+           /></div>
+
+    <div><input #zip type="text" 
+           placeholder="Zip code"
+           /></div>
+
+    <button (click)="getFormData(name.value, phone.value, email.value, street.value, city.value, state.value, zip.value)">
+        Submit
+    </button>
+
+</div>
