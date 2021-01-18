@@ -1,9 +1,12 @@
 <div id="templatemo_menu">
     <ul>
         <li><a href="#" class="current">Home</a></li>
-        <li><a routerLink="" routerLinkActive="active-link">Search</a></li>
         <li><a href="#">New Releases</a></li>
         <li *ngIf="isAuthenticated"><a routerLink="/cart-list" routerLinkActive="active-link">Goto Cart</a></li>
+        <li><div id="search">
+            <input #myInput type="text" placeholder="Search for books..." (keyup.enter)="doSearch(myInput.value)">
+            <button (click)="doSearch(myInput.value)" type="submit">Search</button>
+        </div></li>
     </ul>
     <div *ngIf="!isAuthenticated">
         <button (click)="userLogin()">Login</button>

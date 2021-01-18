@@ -16,7 +16,9 @@ button {
     background-color: gray;
     padding: 0px 10px;
     margin: auto;
-    font-size: 12px;
+    font-size: 14px;
+    border: none;
+    transition-duration: 0.4s;
 }
 
 .alert {
@@ -25,4 +27,29 @@ button {
     padding: 10px 5px;
     text-align: left;
     font-size: medium;
+}
+
+#search {
+    float: right;
+    margin-right: 20px;
+}
+
+#search button {
+    padding: 1px 6px 1px 6px;
+    border: none;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+ #search input[type=text] {
+    padding: 1px 6px 1px 6px;
+    border: none;
+    font-size: 14px;
+    background-color: khaki;
+    color: black;
+}
+
+button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
 }

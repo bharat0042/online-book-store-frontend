@@ -1,15 +1,23 @@
-<div *ngFor="let temp of books">
+<div *ngFor="let temp of books  | paginate: config">
     <div class="templatemo_product_box">
         <h1>{{temp.name}}</h1>
         <img src="{{temp.imageUrl}}" alt="image" />
         <div class="product_info">
             <p>{{temp.description}}</p>
             <h3>{{ temp.price | currency:'INR' }}</h3>
-            <div class="detail_button"><a routerLink="/book-details/{{ temp.id }}" routerLinkActive="active-link">Details</a></div>
+            <div class="detail_button"><a routerLink="/book-details/{{ temp.id }}"
+                    routerLinkActive="active-link">Details</a></div>
             <div class="buy_now_button"><button (click)="addToCart(temp)">Buy Now</button></div>
         </div>
         <div class="cleaner">&nbsp;</div>
     </div>
-    <div *ngIf="temp.id % 2 == 1" class="cleaner_with_width">&nbsp;</div>
-    <div *ngIf="temp.id % 2 == 0" class="cleaner_with_height">&nbsp;</div>
+</div>
+<div class="navi">
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+    Select page size :
+    <select (change)="updatePageSize($event)" class="select">
+        <option>4</option>
+        <option>8</option>
+        <option>12</option>
+    </select>
 </div>

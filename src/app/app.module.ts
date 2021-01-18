@@ -18,6 +18,7 @@ import { OKTA_CONFIG,
 import { BookDetailsComponent } from './components/book-details/book-details.component';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 const oktaCfg = Object.assign({
   onAuthRequired : (injector) => {
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutFormComponent },
   { path: 'cart-list', component: CartListComponent },
   { path: 'book-details/:book-id', component: BookDetailsComponent },
+  { path: 'search/:name', component: BooksComponent },
   { path: 'books/:id', component: BooksComponent },
   { path: 'books', component: BooksComponent },
   { path: '', redirectTo: '/books', pathMatch: 'full' }
@@ -54,7 +56,8 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    OktaAuthModule
+    OktaAuthModule,
+    NgxPaginationModule
   ],
   providers: [{provide : OKTA_CONFIG, useValue : oktaCfg}],
   bootstrap: [AppComponent]

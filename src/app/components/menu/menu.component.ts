@@ -35,4 +35,8 @@ export class MenuComponent implements OnInit {
   userLogout() {
     this.oktaAuth.signOut();
   }
+
+  doSearch(name : string) {
+    this.router.navigateByUrl(`/search/${name}`);
+  }
 }
