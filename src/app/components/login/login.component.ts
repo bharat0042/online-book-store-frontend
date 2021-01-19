@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
       i18n: {
         en: {
           'primaryauth.title': 'Sign in to biggest online book store',
+          'error.username.required' : 'Please enter a valid username',
+          'errors.E0000004' : 'Sign in failed. Please use valid username and password and try again',
+          'error.invalid.colors.brand' : '#FF00FF'
         },
       },
       authParams: {
@@ -41,6 +44,9 @@ export class LoginComponent implements OnInit {
       if(result.status == "SUCCESS") {
         this.oktaAuth.signInWithRedirect();
       }
+    },
+    (error) => {
+      alert(error);
     });
   }
 
