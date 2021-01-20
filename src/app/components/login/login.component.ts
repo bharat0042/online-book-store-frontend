@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
       clientId: oktaConfig.oidc.clientId,
       redirectUri: oktaConfig.oidc.redirectUri,
       logo: '/assets/logo.png',
+      features: {
+        registration: true
+      },
       i18n: {
         en: {
           'primaryauth.title': 'Sign in to biggest online book store',
